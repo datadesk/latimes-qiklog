@@ -1,4 +1,11 @@
-from django.conf import settings
+# Load Django, if you have it.
+try:
+    from django.conf import settings
+    if not settings.configured:
+        settings = None
+except:
+    settings = None
+
 
 
 class QikLog(object):
@@ -7,21 +14,28 @@ class QikLog(object):
 
     from qiklog import QikLog
     logger = QikLog('latimes.whatever')
-    logger.log.info('...')
+    logger.log.info('Info...')
+    logger.log.debug('Info...')
+
+    # Test the first var.
+    # Make a __str__ and __repr__ functions
     """
 
-    def __init__(self, logname, level='DEBUG',
+    def __init__(self, logname=None, level='DEBUG',
         formatter='%(asctime)s|%(levelname)s|%(message)s'):
+
+        if not logname:
+            raise ValueError('first argument must be the name of logfile.')
 
         # Import all the bizness
         import os
         import logging as l
-        import logging.handlers as h
         self.logging = l
 
         # Create the file handler
         self.logname = logname
-        self.logpath = os.path.join(settings.LOG_DIRECTORY, self.logname)
+        self.logdir = getattr(settings, 'LOG_DIRECTORY', os.path.dirname(__file__))
+        self.logpath = os.path.join(self.logdir, self.logname)
         self.logfile = self.logging.FileHandler(self.logpath)
         self.formatter = self.logging.Formatter(formatter)
         self.logfile.setFormatter(self.formatter)
@@ -37,7 +51,7 @@ class QikLog(object):
         self.log.setLevel(self.level)
 
         # Turn on console stream and lower debug level if in development mode
-        if settings.DEBUG:
+        if getattr(settings, 'DEBUG', None):
             self.printer = self.logging.StreamHandler()
             self.printer.setLevel(self.logging.NOTSET)
             self.log = self.logging.getLogger(self.logname)
