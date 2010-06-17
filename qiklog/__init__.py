@@ -14,10 +14,7 @@ class QikLog(object):
     from qiklog import QikLog
     logger = QikLog('latimes.whatever')
     logger.log.info('Info...')
-    logger.log.debug('Info...')
-
-    # Test the first var.
-    # Make a __str__ and __repr__ functions
+    logger.log.debug('Debug...')
     """
 
     def __init__(self, logname=None, level='DEBUG',
@@ -58,5 +55,13 @@ class QikLog(object):
             self.log = self.logging.getLogger(self.logname)
             self.log.addHandler(self.printer)
 
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__.__name__, self.__str__())
+    
+    def __str__(self):
+        return self.__unicode__().encode("utf-8")
+    
+    def __unicode__(self):
+        return unicode(self.logname)
 
 
