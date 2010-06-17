@@ -17,9 +17,9 @@ Inspired by the logging shortcuts in "everyblock_code":http://github.com/brosner
 
 h2. Installation
 
-*01. Download the repository to your Django project*
+*01. Download the module*
 
-*02. Add the following variable to settings.py*
+*02. If you want to integrate with Django, add the following variable to settings.py*
 <pre><code>LOG_DIRECTORY = './whatever/logs/'</code></pre>
 
 h2. Usage
