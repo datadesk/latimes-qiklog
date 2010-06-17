@@ -1,0 +1,32 @@
+<pre><code>
+ .d88b.  d888888b db   dD db       .d88b.   d888b  
+.8P  Y8.   `88'   88 ,8P' 88      .8P  Y8. 88' Y8b 
+88    88    88    88,8P   88      88    88 88      
+88    88    88    88`8b   88      88    88 88  ooo 
+`8P  d8'   .88.   88 `88. 88booo. `8b  d8' 88. ~8~ 
+ `Y88'Y8 Y888888P YP   YD Y88888P  `Y88P'   Y888P  
+</code></pre>
+
+A simplified version of Python's logging for a Django environment.
+
+Debugging levels, log formatting and log output are preconfigured. Django is required. Outputs messages INFO-level and up to a file when DEBUG is True. Outputs messages DEBUG-level and up to a file and the console when DEBUG is False. 
+
+h2. Installation
+
+*01. Download the repository to your Django project*
+
+*02. Add the following variable to settings.py*
+<pre></code>
+LOG_DIRECTORY = './whatever/logs/'</code></pre>
+
+h2. Usage
+
+*Fire it up*
+<pre><code>from qiklog import QikLog
+logger = QikLog('latimes.whatever')</code></pre>
+
+*Make it sing*
+<pre><code>
+logger.log.warn('INFO')
+logger.log.info('INFO')
+logger.log.debug('DEBUG')</code></pre>

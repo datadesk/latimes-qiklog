@@ -3,10 +3,10 @@ from django.conf import settings
 
 class QikLog(object):
     """
-    A simplified logger that is preconfigured for our Django environment.
+    A simplified logger that is preconfigured for a Django environment.
 
     from qiklog import QikLog
-    logger = QikLog('latimes.whatever', 'debug')
+    logger = QikLog('latimes.whatever')
     logger.log.info('...')
     """
 
