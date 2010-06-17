@@ -29,6 +29,6 @@ h2. Usage
 logger = QikLog('latimes.whatever')</code></pre>
 
 *Make it sing*
-<pre><code>logger.log.warn('INFO')
+<pre><code>logger.log.warn('WARN')
 logger.log.info('INFO')
 logger.log.debug('DEBUG')</code></pre>
