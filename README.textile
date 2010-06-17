@@ -10,7 +10,7 @@ A simplified version of Python's logging module for a Django environment.
 
 Debugging levels, log formatting and log output are preconfigured. 
 
-Django is required. Outputs messages INFO-level and up to a file when Django's DEBUG setting is True. Outputs messages DEBUG-level and up to a file and the console when Django's DEBUG setting is False. 
+Django is required. Outputs messages INFO-level and up to a file when Django's DEBUG setting is False. Outputs messages DEBUG-level and up to a file and the console when Django's DEBUG setting is True. 
 
 Inspired by the logging shortcuts in "everyblock_code":http://github.com/brosner/everyblock_code/blob/master/ebdata/ebdata/retrieval/log.py.
 
