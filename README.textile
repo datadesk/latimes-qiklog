@@ -6,17 +6,18 @@
  `Y88'Y8 Y888888P YP   YD Y88888P  `Y88P'   Y888P  
 </code></pre>
 
-A simplified version of Python's logging for a Django environment.
+A simplified version of Python's logging module for a Django environment.
 
-Debugging levels, log formatting and log output are preconfigured. Django is required. Outputs messages INFO-level and up to a file when DEBUG is True. Outputs messages DEBUG-level and up to a file and the console when DEBUG is False. 
+Debugging levels, log formatting and log output are preconfigured. 
+
+Django is required. Outputs messages INFO-level and up to a file when DEBUG is True. Outputs messages DEBUG-level and up to a file and the console when DEBUG is False. 
 
 h2. Installation
 
 *01. Download the repository to your Django project*
 
 *02. Add the following variable to settings.py*
-<pre></code>
-LOG_DIRECTORY = './whatever/logs/'</code></pre>
+<pre><code>LOG_DIRECTORY = './whatever/logs/'</code></pre>
 
 h2. Usage
 
