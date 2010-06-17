@@ -6,11 +6,12 @@
  `Y88'Y8 Y888888P YP   YD Y88888P  `Y88P'   Y888P  
 </code></pre>
 
-A simplified version of Python's logging module for a Django environment.
+A simplified version of Python's logging module.
 
 Debugging levels, log formatting and log output are preconfigured. 
 
-Django is required. Outputs messages INFO-level and up to a file when Django's DEBUG setting is False. Outputs messages DEBUG-level and up to a file and the console when Django's DEBUG setting is True. 
+Django is not required, but it adds some functionary. By default, the logging module's "info" level of messages are dumped into a local file. 
+Unless Django's DEBUG setting is set to True, then the logging level is reduced to "debug" and messages are also broadcast through the console.
 
 Inspired by the logging shortcuts in "everyblock_code":http://github.com/brosner/everyblock_code/blob/master/ebdata/ebdata/retrieval/log.py.
 
