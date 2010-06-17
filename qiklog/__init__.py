@@ -7,7 +7,6 @@ except:
     settings = None
 
 
-
 class QikLog(object):
     """
     A simplified logger that is preconfigured for a Django environment.
@@ -26,6 +25,8 @@ class QikLog(object):
 
         if not logname:
             raise ValueError('first argument must be the name of logfile.')
+        if not isinstance(logname, basestring):
+            raise ValueError('first argument must be a string')
 
         # Import all the bizness
         import os
