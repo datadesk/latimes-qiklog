@@ -27,13 +27,13 @@ h2. Installation
 h2. Usage
 
 *01. Fire it up*
-<pre><code>from qiklog import QikLog
-logger = QikLog('latimes.whatever')</code></pre>
+<pre><code>>> from qiklog import QikLog
+>> logger = QikLog('latimes.whatever')</code></pre>
 
 *02. Make it sing*
-<pre><code>logger.log.warn('WARN')
-logger.log.info('INFO')
-logger.log.debug('DEBUG')</code></pre>
+<pre><code>>> logger.log.warn('WARN')
+>> logger.log.info('INFO')
+>> logger.log.debug('DEBUG')</code></pre>
 
 *03. Watch the logs pour in*
 <pre><code>#If Django's DEBUG is True
