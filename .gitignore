@@ -1,3 +1,5 @@
+logs/*
+test.py
 .gitignore
 MANIFEST
 dist/*

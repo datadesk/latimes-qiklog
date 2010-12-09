@@ -18,25 +18,26 @@ class QikLog(object):
 
     def __init__(self, logname=None, level='DEBUG',
         formatter='%(asctime)s|%(levelname)s|%(message)s',
-        force_debug_mode=False):
-
+        log_directory="./", force_debug_mode=False):
+        
         if not logname:
             raise ValueError('first argument must be the name of logfile.')
         if not isinstance(logname, basestring):
             raise ValueError('first argument must be a string')
-
+        
         # Import all the bizness
         import os
         import sys
         import logging as l
         self.log = l
-
+        
         # Create the file handler
         self.logname = logname
         self.logdir = getattr(settings,
             'LOG_DIRECTORY',
-            os.path.join(os.path.dirname(__file__), 'logs')
+            os.path.join(os.path.dirname(log_directory), 'logs')
         )
+        
         # If settings.LOG_DIRECTORY doesn't exist,
         # try to create it. OSError.errno == 17 means
         # the directory exists, which is hunky dory.
@@ -53,13 +54,21 @@ class QikLog(object):
         # Set the debug level
         self.level = getattr(self.log, level.upper())
         
-        # If we're in debug mode, configure to print to stdout
-        if getattr(settings, 'DEBUG', None) and not force_debug_mode:
+        # Figure out if we're in Django's debug mode...
+        self.debug_mode = getattr(settings, 'DEBUG', None)
+        
+        # .. or if we're simulating it
+        if force_debug_mode:
+            self.debug_mode = True
+        
+        # If we *are* in debug mode, configure the logger to print to stdout
+        if self.debug_mode:
             self.log.basicConfig(
                 stream=sys.stdout,
                 format=formatter,
                 level=self.log.NOTSET,
             )
+        
         # If we're not in debug, print to the log file
         else:
             self.log.basicConfig(
