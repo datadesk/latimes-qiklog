@@ -12,8 +12,8 @@ Inspired by the logging shortcuts in "everyblock_code":http://github.com/brosner
 
 h2. Requirements
 
-Django is not required, but it adds some functionality. By default, messages at or above logging module's "info" level are dumped into a local file. 
-That is unless Django's DEBUG setting is set to True, when the logging level is reduced to "debug" and messages are also broadcast through stdout.
+Django is not required, but it adds some functionality. By default, messages at or above logging module's "debug" level are dumped into a local file. 
+That is unless Django's DEBUG setting is set to True, when messages are also broadcast through stdout.
 
 h2. Installation
 
