@@ -35,6 +35,11 @@ logger = QikLog('latimes.whatever')</code></pre>
 logger.log.info('INFO')
 logger.log.debug('DEBUG')</code></pre>
 
+*03. Watch the logs pour in*
+<pre><code>#If Django's DEBUG is True
+$ tail -f ./whatever/logs/latimes.whatever
+# If Django's DEBUG is False, or you've passed force_debug_mode=False into QikLog it'll fly through stdout.</code></pre>
+
 h2. Reuse
 
 This code is under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>. Do with it what you will.
