@@ -6,29 +6,35 @@
  `Y88'Y8 Y888888P YP   YD Y88888P  `Y88P'   Y888P  
 </code></pre>
 
-A simplified version of Python's logging module.
-
-Debugging levels, log formatting and log output are preconfigured. 
-
-Django is not required, but it adds some functionality. By default, the logging module's "info" level of messages are dumped into a local file. 
-Unless Django's DEBUG setting is set to True, then the logging level is reduced to "debug" and messages are also broadcast through the console.
+A simplified version of Python's logging module. Debugging levels, log formatting and log output are preconfigured. Grip and rip.
 
 Inspired by the logging shortcuts in "everyblock_code":http://github.com/brosner/everyblock_code/blob/master/ebdata/ebdata/retrieval/log.py.
+
+h2. Requirements
+
+Django is not required, but it adds some functionality. By default, messages at or above logging module's "info" level are dumped into a local file. 
+That is unless Django's DEBUG setting is set to True, when the logging level is reduced to "debug" and messages are also broadcast through stdout.
 
 h2. Installation
 
 *01. Download the module*
+
+<pre><code>pip install latimes-qiklog</code></pre>
 
 *02. If you want to integrate with Django, add the following variable to settings.py*
 <pre><code>LOG_DIRECTORY = './whatever/logs/'</code></pre>
 
 h2. Usage
 
-*Fire it up*
+*01. Fire it up*
 <pre><code>from qiklog import QikLog
 logger = QikLog('latimes.whatever')</code></pre>
 
-*Make it sing*
+*02. Make it sing*
 <pre><code>logger.log.warn('WARN')
 logger.log.info('INFO')
 logger.log.debug('DEBUG')</code></pre>
+
+h2. Reuse
+
+This code is under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>. Do with it what you will.
