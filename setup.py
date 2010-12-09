@@ -72,7 +72,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
 
 
 setup(name='latimes-qiklog',
-      version='0.9.03',
+      version='0.9.04',
       description='A simplified wrapper for Python\'s logging module',
       author='Ben Welsh',
       author_email='ben.welsh@gmail.com',
