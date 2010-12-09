@@ -1,0 +1,3 @@
+include MANIFEST.in
+include README.textile
+include qiklog/__init__.py
